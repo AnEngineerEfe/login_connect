@@ -13,7 +13,7 @@ const ProductTable = ({ products, onUpdateProduct, onDeleteProduct }) => {
       <tbody>
         {products.map((product, index) => (
           <tr key={index}>
-            <td>{product.name}</td>
+            <td>{product.title}</td>
             <td>{product.price}</td>
             <td>
               <button onClick={() => onUpdateProduct(product)}>Update</button>
