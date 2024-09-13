@@ -12,15 +12,12 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (values) => {
-    try {
+    
       const response = await axios.post('https://dummyjson.com/auth/login', values);
       if (response.data.token) {
         dispatch(login({ token: response.data.token }));
         navigate('/products');
       }
-    } catch (error) {
-      console.error('Login failed', error);
-    }
   };
 
   return (

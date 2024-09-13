@@ -12,12 +12,9 @@ const ProductPage = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      try {
+      
         const response = await axios.get('https://dummyjson.com/products');
         dispatch(setProducts(response.data.products));
-      } catch (error) {
-        console.error('Error fetching products', error);
-      }
     };
     fetchProducts();
   }, [dispatch]);
