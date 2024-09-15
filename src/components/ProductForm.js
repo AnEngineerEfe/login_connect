@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 const ProductForm = ({ onAddProduct, onSaveProduct, productToEdit }) => {
   const initialValues = { name: '', price: '' };
 
-  // useEffect burada, productToEdit her değiştiğinde Formik değerlerini güncelleyecek
+  
   useEffect(() => {
     if (productToEdit) {
       setValues(productToEdit);
@@ -19,7 +19,7 @@ const ProductForm = ({ onAddProduct, onSaveProduct, productToEdit }) => {
 
   const handleSubmit = (values, { resetForm }) => {
     if (productToEdit) {
-      onSaveProduct({ ...values, id: productToEdit.id }); // id'yi de ekleyerek güncelliyoruz
+      onSaveProduct({ ...values, id: productToEdit.id });
     } else {
       onAddProduct(values);
     }
@@ -28,10 +28,10 @@ const ProductForm = ({ onAddProduct, onSaveProduct, productToEdit }) => {
 
   return (
     <Formik
-      initialValues={productToEdit || initialValues} // Başlangıç değerleri güncelleniyor
+      initialValues={productToEdit || initialValues} 
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
-      enableReinitialize // Formun başlangıç değerlerinin dışarıdan güncellenebilmesini sağlıyor
+      enableReinitialize
     >
       {({ setValues }) => (
         <Form>
